@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Page</title>
     <script>
-        async function getData() {
-            try {
-              var dataid = localStorage.productID-1;
-              //  console.log(dataid);
-              const response = await axios.get('https://dummyjson.com/products');
-              //console.log(response.data.products[dataid]);
-              const Products=response.data.products[dataid];
-              var result = 
-              `
+      async function getData() {
+        try {
+          var url = window.location.href;
+          var params = url.split("?");
+          var id = params[0];
+          var value = params[1]; 
+          var getId = value.split("=");
+          var datai = getId[1];
+          console.log(datai);
+          //var dataid = localStorage.productID - 1;
+          //  console.log(dataid);
+          const response = await axios.get(`https://dummyjson.com/products`);
+          const Products = response.data.products[datai-1];
+          console.log(Products.title);
+
+          var result = `
                 <div class="product">         
                 <h2>${Products.title}</h2>
                 <p>Brand: ${Products.brand}</p>
@@ -23,16 +30,14 @@
                 <p>${Products.category}<p>
                 </div> 
                 
-                ` ;
-            document.querySelector(".detailsSection").innerHTML = result;
-            } catch (error) {
-              console.error(error);
-            }
-            
-          }
+                `;
+          document.querySelector(".detailsSection").innerHTML = result;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    </script>
 
-        </script>
-        
     <style>
       * {
         margin: 0;
@@ -44,28 +49,35 @@
       .h2 {
         background-color: aqua;
       }
-      .detailsSection{
+      .detailsSection {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        
-      } 
-      .product{
+      }
+      .product {
         display: flex;
         flex-direction: column;
-        gap:20px;
+        gap: 20px;
         color: white;
       }
-      img{
+      img {
         width: 500px;
         height: 350px;
+      }
+      .ali{
+        color:white;
+      }
+      p{
+        width: 500px;
       }
     </style>
   </head>
   <body onload="getData()">
-    <div class="detailsSection"></div>
+    <div class="detailsSection">
+    
+    </div>
 
     <script src="./node_modules/axios/dist/axios.min.js"></script>
   </body>

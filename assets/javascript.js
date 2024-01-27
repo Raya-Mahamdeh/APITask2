@@ -8,9 +8,8 @@ async function getUser() {
         return `
         <div class="product">         
         <h2>${products.title}</h2>
-        <p>Price: ${products.price}$</p>
         <img src="${products.thumbnail}"/>
-        <button onclick="bringData(${products.id})">Read More</button>
+        <a href="about.htm?id=${products.id}">Read More</a>
         </div> 
         
         ` 
@@ -26,7 +25,7 @@ async function getUser() {
     localStorage.productID = data;
     console.log(localStorage.productID);
     window.location.href = "about.htm";
-    
+
 
 }
 
