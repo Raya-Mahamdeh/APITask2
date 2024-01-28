@@ -1,6 +1,7 @@
 
 async function getUser() {
     try {
+     //const axios = require('axios/dist/browser/axios.cjs');
       const response = await axios.get('https://dummyjson.com/products');
       console.log(response.data.products);
       const Products=response.data.products;

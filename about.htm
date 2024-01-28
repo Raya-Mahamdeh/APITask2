@@ -7,6 +7,7 @@
     <script>
       async function getData() {
         try {
+        //const axios = require('axios/dist/browser/axios.cjs');
           var url = window.location.href;
           var params = url.split("?");
           var id = params[0];
@@ -63,7 +64,7 @@
         color: white;
       }
       img {
-        
+
         width: 500px;
         height: 350px;
       }
@@ -80,6 +81,6 @@
     
     </div>
 
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 </html>
