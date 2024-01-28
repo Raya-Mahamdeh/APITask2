@@ -21,12 +21,8 @@ async function getUser() {
     }
     
   }
-  function bringData(data){
-    localStorage.productID = data;
-    console.log(localStorage.productID);
-    window.location.href = "about.htm";
 
 
-}
+
 
 getUser();
